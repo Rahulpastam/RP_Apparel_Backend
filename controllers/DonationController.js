@@ -15,10 +15,12 @@ export const sendDonationMessage = catchAsyncErrors(async (req, res, next) => {
         catogory,
     });
 
-    res.status(200).json({
-        success: true,
-        message: "Your donation has been sent successfully",
-    })
+    return next( new)
+
+    // res.status(200).json({
+    //     success: true,
+    //     message: "Your donation has been sent successfully",
+    // })
   });
 
 
