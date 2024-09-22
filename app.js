@@ -5,7 +5,8 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { dbConnection } from "./database/dbconnection.js";
 import DonationRouter from "./router/DonationRouter.js"
-import ErrorHandler from "./middlewares/errorHandler.js";
+import {errorMiddleware} from "./middlewares/errorHandler.js";
+import UserRouter from "./router/UserRouter.js"
 
 
 const app = express();
@@ -26,10 +27,11 @@ app.use(fileUpload({
 }))
 
 app.use("/api/message", DonationRouter);
+app.use("/api/user", UserRouter);
 
 
 
 dbConnection()
 
-app.use(ErrorHandler)
+app.use(errorMiddleware)
 export default app;

@@ -42,7 +42,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         select: false,
-        minlength: [6, "select a valid password"],
+        minlength: [3, "select a valid password"], //change length of password later
+      },
+      confirmPassword: {
+        type: String,
+        required: true,
+        select: false,
+        minlength: [3, "select a valid password"],
       },
 })
 
@@ -54,12 +60,16 @@ userSchema.pre("save", async function (next) {
     next();
 })
 
-userSchema.methods.comparePassword = async function () {
-    return jwt.sign({ id: this._id}, 
-        process.env.JWT_SECRET_KEY, {
-            expiresIn: process.env.JWT_EXPIRES,
-        }
-    )
-}
+userSchema.methods.comparePassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
+  };
+
+userSchema.methods.generateJsonWebToken = function () {
+    console.log(process.env.JWT_EXPIRES);
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
+      expiresIn: process.env.JWT_EXPIRES,
+    });
+  };
+  
 
 export const User = mongoose.model("User", userSchema)

@@ -4,6 +4,6 @@ import { sendDonationMessage } from "../controllers/DonationController.js"
 
 const router = express.Router()
 
-router.post("/send", sendDonationMessage);
+router.post("/donation/send", sendDonationMessage);
 
 export default router;

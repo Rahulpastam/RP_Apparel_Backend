@@ -1,6 +1,6 @@
 import  {Donation}  from "../models/DonationSchema.js"
 import ErrorHandler from "../middlewares/errorHandler.js"
-import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js"
+import  catchAsyncErrors  from "../middlewares/catchAsyncErrors.js"
 
 export const sendDonationMessage = catchAsyncErrors(async (req, res, next) => {
     const { itemName, quantity, catogory } = req.body;
@@ -15,12 +15,10 @@ export const sendDonationMessage = catchAsyncErrors(async (req, res, next) => {
         catogory,
     });
 
-    return next( new)
-
-    // res.status(200).json({
-    //     success: true,
-    //     message: "Your donation has been sent successfully",
-    // })
+    res.status(200).json({
+        success: true,
+        message: "Your donation has been sent successfully",
+    })
   });
 
 
