@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
         minLength: [10, "Enter a valid Mobile number"],
         maxLength: [10, "Enter a valid Mobile number"]
     },
+    houseNo: {
+        type: String,
+        require: true
+    },
     street: {
         type: String,
         required: true,
@@ -42,13 +46,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         select: false,
-        minlength: [3, "select a valid password"], //change length of password later
+        minlength: [6, "select a valid password"],
       },
-      confirmPassword: {
+    confirmPassword: {
         type: String,
-        required: true,
         select: false,
-        minlength: [3, "select a valid password"],
+        minlength: [6, "select a valid password"],
       },
 })
 
@@ -65,11 +68,12 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
   };
 
 userSchema.methods.generateJsonWebToken = function () {
-    console.log(process.env.JWT_EXPIRES);
+    // console.log(process.env.JWT_EXPIRES);
     return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
       expiresIn: process.env.JWT_EXPIRES,
     });
   };
+  
   
 
 export const User = mongoose.model("User", userSchema)

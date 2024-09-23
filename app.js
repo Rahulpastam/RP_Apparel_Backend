@@ -4,7 +4,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { dbConnection } from "./database/dbconnection.js";
-import DonationRouter from "./router/DonationRouter.js"
+import ApparelRouter from "./router/ApparelRouter.js"
 import {errorMiddleware} from "./middlewares/errorHandler.js";
 import UserRouter from "./router/UserRouter.js"
 
@@ -26,7 +26,7 @@ app.use(fileUpload({
     tempFileDir: "/tmp/",
 }))
 
-app.use("/api/message", DonationRouter);
+app.use("/api/apparel", ApparelRouter);
 app.use("/api/user", UserRouter);
 
 
