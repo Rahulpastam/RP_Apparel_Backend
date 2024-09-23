@@ -25,6 +25,10 @@ const ApparelSchema = new mongoose.Schema({
         enum: ["Men", "Women", "Kids", "Unisex"],
         message: "Please select a valid category",
     },
+    pickupDate: {
+        type: Date,
+        required: true,
+    },
 });
 
 export const Apparel = mongoose.model("Apparel", ApparelSchema);
