@@ -14,6 +14,6 @@ export const generateToken = (user, message, statusCode, res) => {
       success: true,
       message,
       user,
-      token,
     });
+  // console.log(cookiename)
 };
