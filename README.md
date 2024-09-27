@@ -1,6 +1,6 @@
 ﻿# RP_Apparel_Backend
 
- 1)I initially started with **building schemas** for both user and apparel.
+ 1)I initially started with **building schemas** for both user and apparel.</br>
  2)motive is to **get some basic details about user and apparel** which they are going to donate/recycle/dispose.
  3)then i started working on **controllers for different features** to include in this application.
  4)The **functionalities in this application include**
