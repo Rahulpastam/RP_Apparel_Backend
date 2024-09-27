@@ -11,7 +11,7 @@
    e) this aslo includes as **automatic cookie expiry of 7 Days**, to make sure that the user claims authorization if not             logged out for 7 days consecutively </br>
 5) after completing all the apis creation, i worked on setting up **Routes**</br></br>
 
-6)##To run the backend express code in your local machine,</br>
+##6)To run the backend express code in your local machine,</br>
 you will be required to install the following node modules first.</br>
 --type the following line in your terminal in your project directory.</br>
 npm i express bcryptjs cookie-parser cors dotenv express-fileupload jsonwebtoken mongoose nodemon validator</br>
