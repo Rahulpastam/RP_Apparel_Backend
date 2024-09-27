@@ -8,10 +8,10 @@ export const sendDonationMessage = catchAsyncErrors(async (req, res, next) => {
   if (!itemName || !quantity || !catogory || !pickupDate) {
     return next(new ErrorHandler("Please fill all the details", 400));
   }
-  const user = await req.user;
+  const userId = req.user._id;
 
   const Donation = await Apparel.create({
-    userId: user._id,
+    userId,
     label: "Donation",
     itemName,
     quantity,
