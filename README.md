@@ -15,3 +15,6 @@
 you will be required to install the following node modules first.</br>
 --type the following line in your terminal in your project directory.</br>
 npm i express bcryptjs cookie-parser cors dotenv express-fileupload jsonwebtoken mongoose nodemon validator</br>
+
+7) After success full installation of required modules from NodeJS,</br>
+8) type *npm start* in your project directory terminal</br>
